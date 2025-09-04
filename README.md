@@ -1,10 +1,10 @@
 # JOSM Conditional Restrictions Plugin
 
-A JOSM plugin that extends the GraphView plugin to support conditional restrictions on OpenStreetMap ways.
+A JOSM plugin for parsing, visualizing, and validating conditional restrictions in OpenStreetMap data. This plugin helps mappers work with time-based and condition-based access rules on roads and paths.
 
 ## Overview
 
-This plugin enhances JOSM's GraphView functionality by adding support for conditional restrictions, which are time-based or condition-based access rules commonly found in OpenStreetMap data. It enables proper visualization and validation of conditional tags in the routing graph.
+The Conditional Restrictions plugin enhances JOSM's capabilities for working with conditional tags - restrictions that apply only under certain conditions like specific times, days, or vehicle properties. It provides visualization, validation, and editing support for these complex tags commonly used in urban mapping.
 
 ## Features
 
