@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.10.15
+Created-By: 24.0.2 (Homebrew)
+Author: CEF
+Plugin-Class: org.openstreetmap.josm.plugins.conditionalrestrictions.C
+ onditionalRestrictionsPlugin
+Plugin-Date: 2025-09-03 11:15:31
+Plugin-Description: Extends GraphView plugin to support conditional re
+ strictions like time-based access rules
+Plugin-Icon: images/conditional.png
+Plugin-Link: https://github.com/yourusername/josm-conditional-restrict
+ ions-plugin
+Plugin-Mainversion: 18000
+Plugin-Requires: graphview
+Plugin-Version: 20250903-111531
+

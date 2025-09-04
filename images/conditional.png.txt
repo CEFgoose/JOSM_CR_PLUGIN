@@ -1,0 +1,12 @@
+# Placeholder for conditional.png icon
+# 
+# This should be replaced with an actual PNG icon file (16x16 or 24x24 pixels)
+# representing conditional restrictions (e.g., a clock with a prohibition sign)
+#
+# You can create this icon using any graphics editor or find an appropriate
+# icon from an open icon set like:
+# - Material Design Icons
+# - Font Awesome 
+# - OpenStreetMap icons
+#
+# The icon should visually represent time-based or conditional access rules.

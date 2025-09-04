@@ -1,0 +1,294 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<osm version='0.6' generator='JOSM Conditional Restrictions Plugin Sample Data'>
+  <!-- 
+    Sample OSM data with various conditional restrictions for testing and development.
+    This file contains realistic examples of conditional restrictions commonly found
+    in OpenStreetMap data, including time-based access rules, vehicle restrictions,
+    and speed limits.
+  -->
+  
+  <!-- Nodes for street network -->
+  <node id='-1' version='1' lat='52.5200' lon='13.4000'>
+    <tag k='name' v='Main Street North'/>
+  </node>
+  <node id='-2' version='1' lat='52.5180' lon='13.4000'>
+    <tag k='name' v='City Center'/>
+    <tag k='highway' v='traffic_signals'/>
+  </node>
+  <node id='-3' version='1' lat='52.5160' lon='13.4000'>
+    <tag k='name' v='School Zone'/>
+  </node>
+  <node id='-4' version='1' lat='52.5140' lon='13.4000'>
+    <tag k='name' v='Industrial Area'/>
+  </node>
+  
+  <!-- Shopping district intersection -->
+  <node id='-5' version='1' lat='52.5200' lon='13.4020'>
+    <tag k='name' v='Shopping District'/>
+  </node>
+  <node id='-6' version='1' lat='52.5180' lon='13.4020'>
+    <tag k='name' v='Market Square'/>
+    <tag k='amenity' v='marketplace'/>
+  </node>
+  
+  <!-- Residential area -->
+  <node id='-7' version='1' lat='52.5160' lon='13.4020'>
+    <tag k='name' v='Residential Junction'/>
+  </node>
+  <node id='-8' version='1' lat='52.5140' lon='13.4020'>
+    <tag k='name' v='Park Entrance'/>
+  </node>
+  
+  <!-- Highway connection -->
+  <node id='-9' version='1' lat='52.5220' lon='13.4000'>
+    <tag k='name' v='Highway Junction'/>
+    <tag k='highway' v='motorway_junction'/>
+  </node>
+  <node id='-10' version='1' lat='52.5120' lon='13.4000'>
+    <tag k='name' v='South Exit'/>
+  </node>
+  
+  <!-- Additional nodes for complex restrictions -->
+  <node id='-11' version='1' lat='52.5200' lon='13.3980'>
+    <tag k='name' v='Bus Terminal'/>
+    <tag k='public_transport' v='station'/>
+  </node>
+  <node id='-12' version='1' lat='52.5180' lon='13.3980'>
+    <tag k='name' v='Hospital Access'/>
+  </node>
+  
+  <!-- WAYS WITH CONDITIONAL RESTRICTIONS -->
+  
+  <!-- 1. Time-based access restriction (city center pedestrian zone) -->
+  <way id='-100' version='1'>
+    <nd ref='-1'/>
+    <nd ref='-2'/>
+    <tag k='highway' v='pedestrian'/>
+    <tag k='name' v='Pedestrian Zone Main Street'/>
+    <tag k='access' v='yes'/>
+    <tag k='motor_vehicle:conditional' v='no @ (Mo-Sa 08:00-20:00)'/>
+    <tag k='note' v='Motor vehicles prohibited during shopping hours'/>
+  </way>
+  
+  <!-- 2. School zone speed restriction -->
+  <way id='-101' version='1'>
+    <nd ref='-2'/>
+    <nd ref='-3'/>
+    <tag k='highway' v='primary'/>
+    <tag k='name' v='School Street'/>
+    <tag k='maxspeed' v='50'/>
+    <tag k='maxspeed:conditional' v='30 @ (Mo-Fr 07:00-09:00,14:00-16:00)'/>
+    <tag k='note' v='Reduced speed during school hours'/>
+  </way>
+  
+  <!-- 3. Heavy goods vehicle restriction -->
+  <way id='-102' version='1'>
+    <nd ref='-3'/>
+    <nd ref='-4'/>
+    <tag k='highway' v='secondary'/>
+    <tag k='name' v='Industrial Access Road'/>
+    <tag k='hgv:conditional' v='no @ (weight>7.5)'/>
+    <tag k='note' v='No trucks over 7.5 tons'/>
+  </way>
+  
+  <!-- 4. Parking restrictions -->
+  <way id='-103' version='1'>
+    <nd ref='-1'/>
+    <nd ref='-5'/>
+    <tag k='highway' v='residential'/>
+    <tag k='name' v='Shopping District Side Street'/>
+    <tag k='parking:lane:both' v='parallel'/>
+    <tag k='parking:lane:both:conditional' v='no_parking @ (Mo-Sa 06:00-10:00,16:00-20:00)'/>
+    <tag k='note' v='No parking during rush hours and shopping peak times'/>
+  </way>
+  
+  <!-- 5. One-way conditional restriction -->
+  <way id='-104' version='1'>
+    <nd ref='-5'/>
+    <nd ref='-6'/>
+    <tag k='highway' v='tertiary'/>
+    <tag k='name' v='Market Access'/>
+    <tag k='oneway' v='no'/>
+    <tag k='oneway:conditional' v='yes @ (Sa 06:00-14:00)'/>
+    <tag k='note' v='One-way during Saturday market'/>
+  </way>
+  
+  <!-- 6. Bicycle conditional access -->
+  <way id='-105' version='1'>
+    <nd ref='-6'/>
+    <nd ref='-7'/>
+    <tag k='highway' v='footway'/>
+    <tag k='name' v='Market Footpath'/>
+    <tag k='foot' v='yes'/>
+    <tag k='bicycle' v='no'/>
+    <tag k='bicycle:conditional' v='yes @ (Mo-Fr 20:00-08:00; Sa-Su)'/>
+    <tag k='note' v='Bicycles allowed outside business hours and weekends'/>
+  </way>
+  
+  <!-- 7. Multiple conditional restrictions -->
+  <way id='-106' version='1'>
+    <nd ref='-7'/>
+    <nd ref='-8'/>
+    <tag k='highway' v='residential'/>
+    <tag k='name' v='Residential Street'/>
+    <tag k='maxspeed' v='50'/>
+    <tag k='maxspeed:conditional' v='30 @ (22:00-06:00)'/>
+    <tag k='access:conditional' v='destination @ (Mo-Fr 07:00-09:00,17:00-19:00)'/>
+    <tag k='note' v='Night speed limit and rush hour access restriction'/>
+  </way>
+  
+  <!-- 8. Seasonal restrictions -->
+  <way id='-107' version='1'>
+    <nd ref='-4'/>
+    <nd ref='-8'/>
+    <tag k='highway' v='track'/>
+    <tag k='name' v='Park Service Road'/>
+    <tag k='access' v='private'/>
+    <tag k='access:conditional' v='yes @ (Apr-Oct Mo-Fr 09:00-17:00)'/>
+    <tag k='note' v='Public access during park season'/>
+  </way>
+  
+  <!-- 9. Bus lane restrictions -->
+  <way id='-108' version='1'>
+    <nd ref='-9'/>
+    <nd ref='-1'/>
+    <tag k='highway' v='primary'/>
+    <tag k='name' v='Highway Connector'/>
+    <tag k='lanes' v='3'/>
+    <tag k='bus:lanes' v='designated||'/>
+    <tag k='motor_vehicle:lanes:conditional' v='no|yes|yes @ (Mo-Fr 06:00-09:00,16:00-19:00)'/>
+    <tag k='note' v='Left lane bus only during rush hours'/>
+  </way>
+  
+  <!-- 10. Complex time restriction -->
+  <way id='-109' version='1'>
+    <nd ref='-2'/>
+    <nd ref='-12'/>
+    <tag k='highway' v='secondary'/>
+    <tag k='name' v='Hospital Access Road'/>
+    <tag k='access' v='yes'/>
+    <tag k='access:conditional' v='emergency @ (Mo-Fr 22:00-06:00; Sa-Su); destination @ (Mo-Fr 06:00-22:00)'/>
+    <tag k='note' v='Emergency vehicles only at night, destination traffic during day'/>
+  </way>
+  
+  <!-- 11. Weight and time combined -->
+  <way id='-110' version='1'>
+    <nd ref='-12'/>
+    <nd ref='-6'/>
+    <tag k='highway' v='tertiary'/>
+    <tag k='name' v='Hospital Service Street'/>
+    <tag k='hgv:conditional' v='destination @ (Mo-Fr 06:00-22:00); no @ (weight>3.5 AND Mo-Fr 22:00-06:00)'/>
+    <tag k='note' v='Delivery trucks allowed during day, no heavy vehicles at night'/>
+  </way>
+  
+  <!-- 12. Motorcycle specific restrictions -->
+  <way id='-111' version='1'>
+    <nd ref='-11'/>
+    <nd ref='-12'/>
+    <tag k='highway' v='residential'/>
+    <tag k='name' v='Quiet Zone'/>
+    <tag k='motorcycle:conditional' v='no @ (22:00-08:00)'/>
+    <tag k='note' v='No motorcycles during night hours (noise restriction)'/>
+  </way>
+  
+  <!-- 13. Construction zone temporary restrictions -->
+  <way id='-112' version='1'>
+    <nd ref='-11'/>
+    <nd ref='-1'/>
+    <tag k='highway' v='primary'/>
+    <tag k='name' v='Under Construction'/>
+    <tag k='maxspeed' v='50'/>
+    <tag k='maxspeed:conditional' v='30 @ (2023-06-01-2023-12-31)'/>
+    <tag k='access:conditional' v='no @ (Mo-Fr 09:00-16:00 AND 2023-06-01-2023-12-31)'/>
+    <tag k='construction' v='yes'/>
+    <tag k='note' v='Temporary restrictions during construction period'/>
+  </way>
+  
+  <!-- 14. Transit priority -->
+  <way id='-113' version='1'>
+    <nd ref='-5'/>
+    <nd ref='-11'/>
+    <tag k='highway' v='secondary'/>
+    <tag k='name' v='Transit Priority Corridor'/>
+    <tag k='lanes' v='2'/>
+    <tag k='bus:lanes:conditional' v='designated| @ (Mo-Fr 06:00-09:00,16:00-19:00)'/>
+    <tag k='psv:conditional' v='designated @ (Mo-Fr 06:00-09:00,16:00-19:00)'/>
+    <tag k='note' v='Right lane for public service vehicles during rush hours'/>
+  </way>
+  
+  <!-- 15. Environmental zone -->
+  <way id='-114' version='1'>
+    <nd ref='-10'/>
+    <nd ref='-4'/>
+    <tag k='highway' v='primary'/>
+    <tag k='name' v='Environmental Zone Entry'/>
+    <tag k='motor_vehicle:conditional' v='no @ (emission_class&lt;4)'/>
+    <tag k='note' v='Only Euro 4 or better emission standard vehicles allowed'/>
+  </way>
+  
+  <!-- 16. Event-based restrictions -->
+  <way id='-115' version='1'>
+    <nd ref='-6'/>
+    <nd ref='-2'/>
+    <tag k='highway' v='pedestrian'/>
+    <tag k='name' v='Event Plaza'/>
+    <tag k='motor_vehicle' v='no'/>
+    <tag k='motor_vehicle:conditional' v='emergency @ (event)'/>
+    <tag k='note' v='Emergency vehicles only during events'/>
+  </way>
+  
+  <!-- Connection ways without restrictions for completeness -->
+  <way id='-116' version='1'>
+    <nd ref='-9'/>
+    <nd ref='-10'/>
+    <tag k='highway' v='motorway'/>
+    <tag k='name' v='Bypass Highway'/>
+    <tag k='ref' v='A100'/>
+    <tag k='oneway' v='yes'/>
+  </way>
+  
+  <way id='-117' version='1'>
+    <nd ref='-8'/>
+    <nd ref='-10'/>
+    <tag k='highway' v='tertiary'/>
+    <tag k='name' v='Park Exit Road'/>
+  </way>
+  
+  <!-- Relations for more complex scenarios -->
+  
+  <!-- Turn restriction with conditional -->
+  <relation id='-200' version='1'>
+    <member type='way' ref='-100' role='from'/>
+    <member type='node' ref='-2' role='via'/>
+    <member type='way' ref='-101' role='to'/>
+    <tag k='type' v='restriction'/>
+    <tag k='restriction' v='no_right_turn'/>
+    <tag k='restriction:conditional' v='only_right_turn @ (Mo-Fr 16:00-18:00)'/>
+    <tag k='note' v='Right turn only during evening rush hour'/>
+  </relation>
+  
+  <!-- Bus route for PSV restrictions -->
+  <relation id='-201' version='1'>
+    <member type='way' ref='-108' role=''/>
+    <member type='way' ref='-113' role=''/>
+    <tag k='type' v='route'/>
+    <tag k='route' v='bus'/>
+    <tag k='ref' v='42'/>
+    <tag k='name' v='Bus Route 42'/>
+    <tag k='operator' v='City Transport'/>
+  </relation>
+  
+  <!-- Zone restriction area -->
+  <relation id='-202' version='1'>
+    <member type='way' ref='-100' role='outer'/>
+    <member type='way' ref='-104' role='outer'/>
+    <member type='way' ref='-105' role='outer'/>
+    <member type='way' ref='-115' role='outer'/>
+    <tag k='type' v='multipolygon'/>
+    <tag k='zone:traffic' v='pedestrian'/>
+    <tag k='motor_vehicle:conditional' v='no @ (Mo-Sa 08:00-20:00)'/>
+    <tag k='name' v='Pedestrian Zone'/>
+    <tag k='note' v='Area-wide motor vehicle restriction during shopping hours'/>
+  </relation>
+  
+</osm>
