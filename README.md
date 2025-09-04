@@ -37,14 +37,20 @@ Examples:
 
 ## Installation
 
+### Quick Install
 1. Install JOSM (version 18000 or later)
-2. Install the GraphView plugin through JOSM's plugin manager
-3. Download the ConditionalRestrictions plugin JAR file
-4. Place it in your JOSM plugins directory:
+2. Install the GraphView plugin through JOSM's plugin manager (optional, for routing features)
+3. Download the latest release: [ConditionalRestrictions.jar v1.0.0](https://github.com/CEFgoose/JOSM_CR_PLUGIN/releases/download/v1.0.0/ConditionalRestrictions.jar)
+4. Place the JAR file in your JOSM plugins directory:
    - Windows: `%APPDATA%\JOSM\plugins\`
    - macOS: `~/Library/JOSM/plugins/`
    - Linux: `~/.josm/plugins/`
 5. Restart JOSM
+
+### Latest Release
+- **Version**: 1.0.0
+- **Download**: [ConditionalRestrictions.jar](https://github.com/CEFgoose/JOSM_CR_PLUGIN/releases/latest)
+- **All Releases**: [View all versions](https://github.com/CEFgoose/JOSM_CR_PLUGIN/releases)
 
 ## Building from Source
 
